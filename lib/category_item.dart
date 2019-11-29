@@ -6,21 +6,31 @@ class CategoryItem extends StatelessWidget {
 
   CategoryItem({this.title, this.backgroundColor});
 
+  void selectCategory() {}
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(15),
-      child: Text(title),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            backgroundColor.withOpacity(0.7),
-            backgroundColor,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,          
+    return InkWell(
+      onTap: selectCategory,
+      splashColor: Theme.of(context).primaryColor,
+      borderRadius: BorderRadius.circular(15),
+      child: Container(
+        padding: const EdgeInsets.all(15),
+        child: Text(
+          title,
+          style: Theme.of(context).textTheme.title,
         ),
-        borderRadius: BorderRadius.circular(15),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              backgroundColor.withOpacity(0.7),
+              backgroundColor,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(15),
+        ),
       ),
     );
   }
